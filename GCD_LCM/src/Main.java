@@ -21,18 +21,35 @@ public class Main {
         return gcd;
 
     }
-    public static  int lcm(int a,int b){
+    public static  int lcm_1(int a,int b){
         int lcm=0;
         int c;
         lcm=a*b/gcd(a,b);
         return lcm;
 
     }
+    public static  int lcm_2(int a,int b){
+        int lcm=0;
+        if(a>b){
+            lcm=b;
+        }
+        else
+        {
+            lcm=a;
+        }
+        while (true){
+            if(lcm%a==0&&lcm%b==0){
+                 return  lcm;
+            }
+            lcm++;
+        }
+
+    }
     public static void main(String[] args) {
-     int a=147;
-     int b=196;
+     int a=72;
+     int b=60;
 
         System.out.println(gcd(a,b));
-        System.out.println(lcm(a,b));
+        System.out.println(lcm_2(a,b));
     }
 }
