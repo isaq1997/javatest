@@ -1,19 +1,28 @@
 package com.company;
 
 public class FirstPalindrome {
+    public static String reverseString(String s){
+        char ch;
+        String nstr="";
+
+        for (int i=0; i<s.length(); i++)
+        {
+            ch= s.charAt(i); //extracts each character
+            nstr= ch+nstr; //adds each character in front of the existing string
+        }
+        return nstr;
+    }
     public static void main(String[] args) {
-        String s[]={"abc","car","ada","racecar","cool"};
-        int k=0;
-        m:for (int i=0;i<s.length;i++){
-            for(int j=0;j<s[i].length()/2;j++){
-                if(s[i].charAt(j)==s[i].charAt(s[i].length()-j-1)){
-                    k++;
-                    if(k==s[i].length()/2) {
-                        System.out.println(s[i]);
-                    }
-                    break m;
-                }
+        String[] words={"abc","a","car","ada","racecar","cool"};
+        String u="";
+        m:for (int i=0;i<words.length;i++) {
+            for (int j=0;j<words[i].length();j++) {
+                 if(words[i].equals(reverseString(words[i]))){
+                     u=words[i];
+                     break m;
+                 }
             }
         }
+        System.out.println(u);
     }
 }
